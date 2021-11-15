@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+    server:
+        image: server
+        container_name: server
+        ports:
+            - 3000:3000
+        # command: npm run watch
+        command: npm run pm2:watch
+
+    postgres:
+        image: postgres:13
+        container_name: postgres
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_USER: admin
+            POSTGRES_PASSWORD: secret
+            POSTGRES_DB: postgres
