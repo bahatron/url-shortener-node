@@ -4,11 +4,11 @@ import { resolve } from "path";
 export const CONFIG: Knex.Config = {
     client: "pg",
     connection: {
-        host: "postgres",
-        port: 5432,
-        user: "admin",
-        password: "secret",
-        database: "postgres",
+        host: process.env.POSTGRES_HOST,
+        port: parseInt(process.env.POSTGRES_PORT || ""),
+        user: process.env.POSTGRES_USER,
+        password: process.env.POSTGRES_PASSWORD,
+        database: process.env.POSTGRES_DB,
     },
     migrations: {
         tableName: "migrations",

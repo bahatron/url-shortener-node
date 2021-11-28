@@ -1,0 +1,11 @@
+FROM node:lts-slim as src
+RUN npm i -g pm2
+
+WORKDIR /app/api
+COPY ./api/package.json .
+RUN npm install
+COPY ./api .
+
+FROM src as dist
+ENV NODE_ENV=production
+RUN npm run build:clean

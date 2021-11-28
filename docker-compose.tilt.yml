@@ -1,20 +1,33 @@
 version: "3.5"
 
+x-postgres-config: &postgres-config
+    POSTGRES_USER: admin
+    POSTGRES_PASSWORD: secret
+    POSTGRES_DB: postgres
+    POSTGRES_PORT: 5432
+    POSTGRES_HOST: postgres
+
 services:
     server:
-        image: server
-        container_name: server
+        image: local/api
+        container_name: url-api
         ports:
             - 3000:3000
-        # command: npm run watch
-        command: npm run pm2:watch
+        command: npm run dev
+        environment:
+            NODE_ENV: dev
+            <<: *postgres-config
+        volumes:
+            - ./api/src/interfaces:/app/api/src/interfaces
 
     postgres:
         image: postgres:13
-        container_name: postgres
+        container_name: url-postgres
         ports:
             - 5432:5432
         environment:
-            POSTGRES_USER: admin
-            POSTGRES_PASSWORD: secret
-            POSTGRES_DB: postgres
+            <<: *postgres-config
+        volumes:
+            - ./postgres/dumps:/dumps
+            - ./postgres/scripts:/scripts
+        working_dir: /scripts
