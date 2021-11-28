@@ -15,8 +15,8 @@ module.exports = {
             ...LOG_OPTIONS,
         },
         {
-            name: "express-api",
-            script: "dist/bin/express-api.js",
+            name: "api-server",
+            script: "dist/bin/api-server.js",
             watch: ["dist"],
             ...LOG_OPTIONS,
         },

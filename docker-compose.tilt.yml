@@ -8,7 +8,7 @@ x-postgres-config: &postgres-config
     POSTGRES_HOST: postgres
 
 services:
-    server:
+    api:
         image: local/api
         container_name: url-api
         ports:

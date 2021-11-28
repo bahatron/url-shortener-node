@@ -5,7 +5,7 @@ WORKDIR /app/api
 COPY ./api/package.json .
 RUN npm install
 COPY ./api .
+RUN npm run build:clean
 
 FROM src as dist
 ENV NODE_ENV=production
-RUN npm run build:clean
