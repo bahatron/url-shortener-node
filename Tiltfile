@@ -5,17 +5,17 @@ docker_build(
     ".",
     dockerfile = "Dockerfile.api",
     live_update = [
-        fall_back_on("./api/package.json"),
-        sync("./api", "/app/api")
+        fall_back_on("./package.json"),
+        sync(".", "/app")
     ],
     target="src",
-    only=[
-        "api/"
-    ],
+    ignore=[
+        "./postgres"
+    ]
 )
 
 watch_settings(
     ignore=[
-        "./api/src/interfaces"
+        "./src/interfaces"
     ]
 )
