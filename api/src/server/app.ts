@@ -10,6 +10,7 @@ export function Server() {
 
     // pre router middleware
     app.use(cors());
+    app.use(express.json());
     app.use(setRequestContextMiddleware);
     app.use(requestLogger);
 

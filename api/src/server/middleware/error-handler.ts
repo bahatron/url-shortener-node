@@ -17,8 +17,6 @@ export const errorHandler: ErrorRequestHandler = (
     } else {
         $logger.warning(err, "request failed");
     }
-    
-    console.log({ err });
 
     return res
         .status(code)

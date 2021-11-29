@@ -1,4 +1,4 @@
-# Url Shortener
+# Todo App
 
 > A sample project to showcase my coding skills
 

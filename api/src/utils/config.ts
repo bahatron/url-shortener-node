@@ -1,3 +1,4 @@
 export const $config = {
-    test_url: process.env.TEST_URL || "http://localhost:3000",
+    testUrl: process.env.testUrl || "http://localhost:3000",
+    devMode: process.env.NODE_ENV !== "production",
 };

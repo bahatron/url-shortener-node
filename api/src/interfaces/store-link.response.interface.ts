@@ -5,7 +5,4 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface Link {
-  originalUrl: string;
-  shortenedUrl: string;
-}
+export type StoreLink = string;

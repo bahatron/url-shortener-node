@@ -8,11 +8,14 @@ docker_build(
         fall_back_on("./api/package.json"),
         sync("./api", "/app/api")
     ],
-    ignore=[
-        "api/src/interfaces",
-    ],
     target="src",
     only=[
         "api/"
     ],
+)
+
+watch_settings(
+    ignore=[
+        "./api/src/interfaces"
+    ]
 )
