@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { $axios } from "../../utils/axios";
 import { $config } from "../../utils/config";
-import { storeLink } from "../store-link/store-link";
+import { storeLink } from "../store-link/store-link.controller";
 
 describe("GET /:shortenedUrl", () => {
     describe("Given an unexistent URL", () => {

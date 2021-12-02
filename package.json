@@ -6,9 +6,9 @@
         "build": "npm run schema:compile && tsc",
         "build:clean": "rm -rf dist && npm run build",
         "pg:migration": "knex migrate:make ${1}",
-        "start": "node dist/bin/express-api.js",
-        "dev": "pm2-runtime start process.config.js",
-        "tsc-watch": "tsc-watch --onCompilationStarted \"npm run schema:compile\" --onSuccess \"npm start\""
+        "start": "node dist/bin/api-server.js",
+        "dev": "tsc --watch & pm2-runtime start process.config.js",
+        "watch": "tsc-watch --onCompilationStarted \"npm run schema:compile\" --onSuccess \"npm start\""
     },
     "author": "",
     "license": "ISC",

@@ -8,7 +8,7 @@ module.exports = {
         {
             name: "dev-watcher",
             script: "npm",
-            args: ["run", "build"],
+            args: ["run", "schema:compile"],
             autorestart: false,
             watch: ["src"],
             ignore_watch: ["**/*.interface.ts"],
