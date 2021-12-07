@@ -13,4 +13,5 @@
 ## Getting Started
 
 -   install dependencies: `npm install`
--   start application: `./run.js up`
+-   start application with tilt: `./run.js up`
+-   run local environment: `npm run watch`

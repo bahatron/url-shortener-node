@@ -4,10 +4,11 @@ import { Server } from "../server/app";
 
 let app = Server();
 
-$postgres.migrate.latest().then(() => {
-    $logger.info(`Database migration complete`);
-
-    app.listen(3000, () => {
-        $logger.info(`server listening on port 3000`);
+$postgres.migrate
+    .latest()
+    .catch($logger.error)
+    .finally(() => {
+        app.listen(3000, () => {
+            $logger.info(`server listening on port 3000`);
+        });
     });
-});
