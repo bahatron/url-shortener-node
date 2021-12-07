@@ -2,13 +2,14 @@
     "version": "1.0.0",
     "scripts": {
         "test": "jest --forceExit --runInBand",
-        "schema:compile": "node compile-jsonschema.js",
+        "start": "node dist/bin/api-server.js",
         "build": "npm run schema:compile && tsc",
         "build:clean": "rm -rf dist && npm run build",
+        "schema:compile": "node compile-jsonschema.js",
         "pg:migration": "knex migrate:make ${1}",
-        "start": "node dist/bin/api-server.js",
-        "dev": "tsc --watch & pm2-runtime start process.config.js",
-        "watch": "tsc-watch --onCompilationStarted \"npm run schema:compile\" --onSuccess \"npm start\""
+        "tsc-watch": "tsc-watch --onCompilationStarted \"npm run schema:compile\" --onSuccess \"npm start\"",
+        "pm2": "tsc --watch & pm2-runtime start process.config.js",
+        "nodemon": "nodemon"
     },
     "author": "",
     "license": "ISC",
@@ -25,6 +26,7 @@
         "json-schema-to-typescript": "^10.1.5",
         "jsonschema": "^1.4.0",
         "knex": "^0.95.14",
+        "nodemon": "^2.0.15",
         "pg": "^8.7.1",
         "ts-node": "^10.4.0",
         "tsc-watch": "^4.5.0",

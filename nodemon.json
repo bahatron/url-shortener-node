@@ -1,0 +1,6 @@
+{
+    "watch": ["src"],
+    "ext": "ts",
+    "ignore": ["src/**/*.interface.ts"],
+    "exec": "npm run schema:compile && ts-node ./src/bin/api-server.ts"
+}
